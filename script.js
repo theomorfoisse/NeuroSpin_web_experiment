@@ -6,7 +6,7 @@ jsPsych.data.addProperties({'ID': subjectID});
 
 // 1) Create timeline 
 var timeline = [];
-console.log("1");
+//console.log("1");
 
 // // // FIRST PART OF THE EXPERIMENT : INTRODUCTION
 
@@ -17,7 +17,7 @@ var consent = {
     cont_btn: "start"
 }
 timeline.push(consent)
-console.log("2");
+//console.log("2");
 
 // 3) Declare the demographic questionaire block. 
 var survey = {
@@ -32,7 +32,7 @@ var survey = {
         labels: ["M", "F"]}]
 };
 timeline.push(survey)
-console.log("3");
+//console.log("3");
 
 // 4) Instructions -- text declared in another file
 var instrutions = {
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }, false);
 
     // This is required. Check the wiki for more information as to why.
-    //sendData(subjectID, "testUser", "testProject", "ping");
+    sendData(subjectID, "testUser", "testProject", "ping");
 
 
     /* start the experiment */
@@ -234,8 +234,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             
             final_data = jsPsych.data.get().filter([{trial_type: 'image-keyboard-response'},{trial_type: 'survey-text'}]).ignore(['internal_node_id','time_elapsed','trial_type','ID']).csv()
             //final_data = jsPsych.data.get().csv();
-            console.log(final_data);
-            //sendData(subjectID,"testUser","testProject",final_data);
+            //console.log(final_data);
+            sendData(subjectID,"testUser","testProject",final_data);
             document.getElementById("jspsych-content").innerHTML = "Merci de votre participation !";
             //document.getElementById("jspsych-content").innerHTML += "<br/><br/>data:<br/><pre>" + final_data + "</pre";
         }
