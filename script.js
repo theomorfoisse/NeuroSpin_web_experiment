@@ -1,7 +1,7 @@
 
 
 // Generate a random subject ID and add it to jsPsych's data to be saved
-var subjectID = jsPsych.randomization.randomID(10000);
+var subjectID = jsPsych.randomization.randomID(10);
 jsPsych.data.addProperties({'ID': subjectID});
 
 // 1) Create timeline 
