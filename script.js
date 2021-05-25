@@ -194,6 +194,7 @@ var choosing_trial = {
     questions: [
         {prompt: jsPsych.timelineVariable('name'), placeholder : "1,2,3,4,..."}
     ],
+    data: { question_type: jsPsych.timelineVariable('name') },
     button_label: 'Prochaine image'
 }
 
@@ -232,8 +233,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         jsPsych.data.get().filter([{trial_type: 'image-keyboard-response'},{trial_type: 'survey-text'}]).ignore(['internal_node_id','time_elapsed','trial_type']).localSave('csv','data_experiment.csv')*/
         on_finish: function(){
             
-            final_data = jsPsych.data.get().filter([{trial_type: 'image-keyboard-response'},{trial_type: 'survey-text'}]).ignore(['internal_node_id','time_elapsed','trial_type','ID']).csv();
-            //final_data = jsPsych.data.get().csv();
+            //final_data = jsPsych.data.get().filter([{trial_type: 'image-keyboard-response'},{trial_type: 'survey-text'}]).ignore(['internal_node_id','time_elapsed','trial_type','ID']).csv();
+            final_data = jsPsych.data.get().csv();
             //console.log(final_data);
             sendData(subjectID,"theomorfoisse","shapes-perception",final_data);
             document.getElementById("jspsych-content").innerHTML = "Merci de votre participation !";
