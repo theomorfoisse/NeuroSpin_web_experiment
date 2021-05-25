@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }, false);
 
     // This is required. Check the wiki for more information as to why.
-    sendData(subjectID, "theomorfoisse", "shapes-perception", "ping");
+    sendData(subjectID, "tm", "ShapesPerception", "ping");
 
 
     /* start the experiment */
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //final_data = jsPsych.data.get().filter([{trial_type: 'image-keyboard-response'},{trial_type: 'survey-text'}]).ignore(['internal_node_id','time_elapsed','trial_type','ID']).csv();
             final_data = jsPsych.data.get().csv();
             //console.log(final_data);
-            sendData(subjectID,"theomorfoisse","shapes-perception",final_data);
+            sendData(subjectID,"tm","ShapesPerception",final_data);
             document.getElementById("jspsych-content").innerHTML = "Merci de votre participation !";
             //document.getElementById("jspsych-content").innerHTML += "<br/><br/>data:<br/><pre>" + final_data + "</pre";
         }
